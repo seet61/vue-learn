@@ -1,9 +1,14 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Привет, world!!!',
-        view: false,
-        message1: '',
-        checked: 'true'
+        count: 0
+    },
+    methods: {
+        countUp: function () {
+            this.count += 1;
+        },
+        countDown: function () {
+            this.count -= 1;
+        }
     }
 })
