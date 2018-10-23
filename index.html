@@ -6,19 +6,21 @@
 </head>
 <body>
 
-<div id="app">
-    {{ message }}
-</div>
+    <div id="app">
+        <h1 v-if="view" v-text="message"></h1>
+        <h1 v-else>false</h1>
+
+        <input type="text" v-model="message1">
+        <h1>{{ message1 }}</h1>
+
+
+        <input type="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="script.js"></script>
-    <!--<script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Привет, Vue!'
-            }
-        })
-    </script>-->
 </body>
 </html>
