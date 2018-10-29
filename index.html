@@ -10,10 +10,9 @@
 
     <div id="app">
         <div class="container">
-            <h1>App</h1>
-            <h1>{{ count }}</h1>
-            <button class="btn btn-success" @click="countUp">+1</button>
-            <button class="btn btn-warning" @click="countDown">-1</button>
+            <h1>URL: <a v-bind:href="url">{{ cleanUrl }}</a></h1>
+            <input type="text" class="form-control" v-model="url">
+            <button @click="cleanerUrl" class="btn btn-primary">Clean url</button>
         </div>
     </div>
 
