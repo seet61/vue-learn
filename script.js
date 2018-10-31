@@ -1,12 +1,22 @@
 var app = new Vue({
     el: '#app',
     data: {
-        url: "",
-        cleanUrl: ""
+        title: "Style",
+        isRounded: false,
+        sizeToggle: false,
+        disabled: false,
+        fontColor: "#ccc",
+        backgroundColor: 'yellow'
+    },
+    computed: {
+        styles: function () {
+            return{
+                color: this.fontColor,
+                background: this.backgroundColor
+            }
+        }
     },
     methods: {
-        cleanerUrl: function() {
-            this.cleanUrl = this.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
-        }
+
     }
 })
