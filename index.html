@@ -15,27 +15,11 @@
 
     <div id="app">
         <div class="container">
-            <h1>{{ title }}</h1>
-            <button v-bind:class="[sizeToggle ? 'large' : '', {'rounded' : isRounded}]"
-                    v-bind:style="styles"
-                    v-bind:disabled="disabled">
-                Start
-            </button>
-            <ul>
-                <li><input type="checkbox" v-model="sizeToggle">
-                    <label for="">Увеличить шрифт</label>
-                </li>
-                <li><input type="checkbox" v-model="isRounded">
-                    <label for="">Округлить</label>
-                </li>
-                <li><input type="checkbox" v-model="disabled">
-                    <label for="">Отключить</label>
-                </li>
-                <li><input type="text" v-model="fontColor">
-                </li>
-                <li><input type="text" v-model="backgroundColor">
-                </li>
-            </ul>
+            <template id="books">
+                <h1>{{title}}</h1>
+                <h4>{{author}}</h4>
+                <p>{{content}}</p>
+            </template>
         </div>
     </div>
 
