@@ -1,24 +1,16 @@
-var app = new Vue({
+new Vue({
     el: '#app',
     data: {
-        title: "Task list",
         items: [
-            {text: "First"},
-            {text: "Second"},
-            {text: "First"},
-            {text: "Second"}
-        ]
+            'Home',
+            'About',
+            'Blog',
+            'Map',
+            'Contacts'
+        ],
+        show: false
     },
     methods: {
-        addItem: function() {
-            var input = document.getElementById('itemForm');
-            if (input.value !== '') {
-                this.items.push({text: input.value});
-                input.value = "";
-            }
-        },
-        deleteItem: function(index) {
-            this.items.splice(index, 1);
-        }
+
     }
 });

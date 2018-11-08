@@ -5,35 +5,94 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        nav {
+            background: #585555;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 60px;
+        }
+        ul {
+            align-self: flex-start;
+            background: #eee;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 60px;
+            width: 100%;
+        }
+        li {
+            align-items: center;
+            color: #000;
+            cursor: pointer;
+            display: flex;
+            font-size: 1.5em;
+            height: 2em;
+            justify-content: center;
+            list-style-type: none;
+            text-transform: uppercase;
+            transition: all .3s ease;
+        }
+        li:hover {
+            background-color: #585555;
+            color: #AFFFEA;
+        }
+        #app {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 850px;
+
+        }
+        @media (max-width: 1024px) {
+            #app {
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .3s ease;
+        }
+        .fate-enter,
+        .fade-leave-to{
+            opacity: 0;
+        }
+        .menu, .clear {
+            cursor: pointer;
+            font-size: 3em;
+            padding-left: 5%;
+            transition: all .3s ease;
+            width: 1.5em;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 
     <div id="app">
-        <div class="container">
-            <header><h1>{{ title }}</h1></header>
-            <form class="form">
-                <div class="input-group mb-3">
-                    <input type="text" id="itemForm" class="form-control" placeholder="Add task">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" @click="addItem">Add</button>
-                    </div>
-                </div>
-            </form>
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Tasks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="item, index in items">
-                        <th scope="row">{{ item.text }} <button @click="deleteItem(index)" class="btn btn-danger">X</button></th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <nav>
+            <transition name="fade" mode="out-in">
+                <i class="material-icons menu" v-if="!show" @click="show = !show" key="menu">menu</i>
+                <i class="material-icons clear" v-else @click="show = !show" key="clear">clear</i>
+            </transition>
+            <transition name="fade">
+                <ul v-if="show">
+                    <li v-for="item in items">{{ item }}</li>
+                </ul>
+            </transition>
+        </nav>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
